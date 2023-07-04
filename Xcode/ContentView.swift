@@ -12,8 +12,8 @@ struct ContentView: View {
     @State private var showPunchline = false
     @State private var currentJokeIndex = 0
     @State private var isFeedbackPresented = false
-    @State private var isPositiveResponse = false
-    @State private var isNegativeResponse = false
+    @State private var displaySheet = false
+    @State private var sheetText = ""
     
     var jokes = [Joke(setup: "Why couldn't the bicycle stand up?", punchline: "It was two tired!"),
                  Joke(setup: "Why did the chicken cross the road?",punchline: "To get to the other side!"),
@@ -66,22 +66,20 @@ struct ContentView: View {
                 isPresented: $isFeedbackPresented) {
              Button("Delete", role: .destructive) {
                  print("good")
-                 isPositiveResponse = true
+                 sheetText = "Yayy! Here's a cookie!!! 🍪🍪🍪 (maybe 3)"
+                 displaySheet = true
              }
              Button("Cancel", role: .cancel) {
                  print("you're a terrible person")
-                 isNegativeResponse = true
+                 sheetText = "How could you?! I spent so much time on the joke! :("
+                 displaySheet = true
              }
             } message: {
              Text("Here's an alert description but I can't think of one")
             }
         
-         .sheet(isPresented: $isPositiveResponse) {
-             Text("Yayy! Here's a cookie!!! 🍪🍪🍪 (maybe 3)")
-                 .font(.title)
-         }
-         .sheet(isPresented: $isNegativeResponse) {
-             Text("How could you?! I spent so much time on the joke! :(")
+         .sheet(isPresented: $displaySheet) {
+             Text(sheetText)
                  .font(.title)
          }
     }
