@@ -15,6 +15,7 @@
 		2B74727D2A52DFC000BEB461 /* XcodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B74727C2A52DFC000BEB461 /* XcodeUITests.swift */; };
 		2B74727F2A52DFC000BEB461 /* XcodeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B74727E2A52DFC000BEB461 /* XcodeUITestsLaunchTests.swift */; };
 		2B74728C2A52E7DD00BEB461 /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B74728B2A52E7DD00BEB461 /* Joke.swift */; };
+		2B803E312A5591FB004E7FE9 /* FeedbackResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B803E302A5591FB004E7FE9 /* FeedbackResponseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		2B74727C2A52DFC000BEB461 /* XcodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeUITests.swift; sourceTree = "<group>"; };
 		2B74727E2A52DFC000BEB461 /* XcodeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2B74728B2A52E7DD00BEB461 /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
+		2B803E302A5591FB004E7FE9 /* FeedbackResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackResponseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				2B7472612A52DFBF00BEB461 /* XcodeApp.swift */,
 				2B7472632A52DFBF00BEB461 /* ContentView.swift */,
+				2B803E302A5591FB004E7FE9 /* FeedbackResponseView.swift */,
 				2B7472652A52DFC000BEB461 /* Assets.xcassets */,
 				2B7472672A52DFC000BEB461 /* Preview Content */,
 				2B74728B2A52E7DD00BEB461 /* Joke.swift */,
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B803E312A5591FB004E7FE9 /* FeedbackResponseView.swift in Sources */,
 				2B7472642A52DFBF00BEB461 /* ContentView.swift in Sources */,
 				2B7472622A52DFBF00BEB461 /* XcodeApp.swift in Sources */,
 				2B74728C2A52E7DD00BEB461 /* Joke.swift in Sources */,

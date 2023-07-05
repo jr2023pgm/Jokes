@@ -14,6 +14,9 @@ struct ContentView: View {
     @State private var isFeedbackPresented = false
     @State private var displaySheet = false
     @State private var sheetText = ""
+    @State var isShown = true
+    @Environment(\.dismiss) var dismiss
+    
     
     var jokes = [Joke(setup: "Why couldn't the bicycle stand up?", punchline: "It was two tired!"),
                  Joke(setup: "Why did the chicken cross the road?",punchline: "To get to the other side!"),
@@ -22,6 +25,18 @@ struct ContentView: View {
                  Joke(setup: "Dad, can you put my shoes on?",punchline: "I don’t think they'll fit me")]
     
     var body: some View {
+        
+        LinearGradient(
+            colors: [.red, .green, .blue],
+            startPoint: .top,
+            endPoint: .bottom)
+            .edgesIgnoringSafeArea(.all)
+            .sheet(isPresented: $isShown) {
+                Text("Hello!")
+                    .presentationDetents([.medium])
+                    .presentationDragIndicator(.visible)
+        }
+        
         ZStack {
             
             Color(.systemBackground)
