@@ -13,8 +13,10 @@ struct ContentView: View {
     @State private var currentJokeIndex = 0
     @State private var isFeedbackPresented = false
     @State private var displaySheet = false
-    @State private var sheetText = ""
+    @State private var isPositive = false
     @State var isShown = true
+    @State private var punchlineSize = 0.1
+    @State private var punchlineRotation: Angle = .zero
     @Environment(\.dismiss) var dismiss
     
     
@@ -54,7 +56,9 @@ struct ContentView: View {
                 
                 Button {
                     print("Button tapped!!")
-                    showPunchline = true
+                    withAnimation{
+                        showPunchline = true
+                    }
                 } label: {
                     Text("What?")
                         .padding()
@@ -66,10 +70,18 @@ struct ContentView: View {
                     Text(jokes[currentJokeIndex % jokes.count].punchline)
                         .padding()
                         .opacity(showPunchline ? 1 : 0)
+                        .scaleEffect(punchlineSize)
+                        .onAppear {
+                            withAnimation(.easeInOut(duration: 0.5)) {
+                                punchlineSize = 1
+                            }
+                        }
+                        .onDisappear {
+                            punchlineSize = 0.1
+                        }
                     
                     
                     Text("Tap to continue")
-                        .hidden()
                         .italic()
                         .padding()
                         .opacity(showPunchline ? 1 : 0)
@@ -81,12 +93,12 @@ struct ContentView: View {
                 isPresented: $isFeedbackPresented) {
              Button("Delete", role: .destructive) {
                  print("good")
-                 sheetText = "Yayy! Here's a cookie!!! 🍪🍪🍪 (maybe 3)"
+                 isPositive = true
                  displaySheet = true
              }
              Button("Cancel", role: .cancel) {
                  print("you're a terrible person")
-                 sheetText = "How could you?! I spent so much time on the joke! :("
+                 isPositive = false
                  displaySheet = true
              }
             } message: {
@@ -94,8 +106,7 @@ struct ContentView: View {
             }
         
          .sheet(isPresented: $displaySheet) {
-             Text(sheetText)
-                 .font(.title)
+             FeedbackResponseView(isPositive: isPositive)
          }
     }
 }
